@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block product_detail %}
+   <div class="product-detail">
+    <img class="product-detail--img" src="{{product.ImageURL}}">
+    <div class='product-detail--info'>
+        <span class='product-detail--name'>{{product.name.upper}}</span>
+        <span class= 'product-detail--price'>${{product.price}}</span>
+        <button data-product={{product.id}} data-action = "add" class="btn btn-outline-secondary add-btn update-cart"> Add to cart </button>
+    </div>
+   </div>
+    
+{% endblock product_detail %}

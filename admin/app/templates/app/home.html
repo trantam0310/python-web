@@ -1,0 +1,186 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block banner-slider %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'app/images/banner/women.png'%}" class="d-block w-100" alt="..." height="600">
+        {% comment %} <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div> {% endcomment %}
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'app/images/banner/men.png'%}" class="d-block w-100" alt="..." height="600">
+        {% comment %} <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div> {% endcomment %}
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/kid.png'%}" class="d-block w-100" alt="..." height="600">
+        {% comment %} <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div> {% endcomment %}
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock banner-slider %}
+
+{% block main-content %}
+<div class="row" >
+  {% for product in products %}
+    <div class="col-lg-3">
+      <div class="thumbnail" style= "background-image: url('{{product.ImageURL}}');">
+        {% comment %} <img class="thumbnail" src="{{product.ImageURL}}"> {% endcomment %}
+      </div>
+      <div class="box-element product">
+        <h6><strong> {{product.name}} </strong></h6>
+        <hr>
+        
+        <button data-product={{product.id}} data-action = "add" class="btn btn-outline-secondary add-btn update-cart"> Add to cart </button>
+        <a class="btn btn-outline-success" href="{% url 'product_detail' product.id %}"> View </a>
+        <h3 style="display: inline-block; float: right"><strong> ${{product.price}}</strong></h3>
+      </div>
+    </div>
+    {% comment %} <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/2.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/3.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/4.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="container--fluid bg-white text-center p-2 mt-5">
+        <h1 > Men </h1>
+    </div>
+    <div class="col-lg-3">
+      <img class="thumbnail" src="{% static 'app/images/5.jpg' %}">
+      <div class="box-element product">
+        <h6><strong> Product </strong></h6>
+        <hr>
+        <button class="btn btn-outline-secondary add-btn"> Add</button>
+        <a class="btn btn-outline-success" href="#"> See product </a>
+        <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+      </div>
+    </div>
+    <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/6.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/7.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/8.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="container--fluid bg-white text-center p-2 mt-5">
+        <h1 > Kid </h1>
+    </div>
+    <div class="col-lg-3">
+      <img class="thumbnail" src="{% static 'app/images/9.jpg' %}">
+      <div class="box-element product">
+        <h6><strong> Product </strong></h6>
+        <hr>
+        <button class="btn btn-outline-secondary add-btn"> Add</button>
+        <a class="btn btn-outline-success" href="#"> See product </a>
+        <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+      </div>
+    </div>
+    <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/10.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/11.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <img class="thumbnail" src="{% static 'app/images/12.jpg' %}">
+        <div class="box-element product">
+          <h6><strong> Product </strong></h6>
+          <hr>
+          <button class="btn btn-outline-secondary add-btn"> Add</button>
+          <a class="btn btn-outline-success" href="#"> See product </a>
+          <h3 style="display: inline-block; float: right"><strong>200.000 VND</strong></h3>
+        </div> {% endcomment %}
+      {% comment %} </div> {% endcomment %}
+      {% endfor %}
+  </div>
+
+  <br /><br /><br />
+{% endblock main-content %}
